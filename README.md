@@ -13,6 +13,7 @@ Local webapp to remove vocals from video/audio using Apple Silicon GPU (MPS).
 ```bash
 pip install fastapi uvicorn aiofiles python-multipart
 pip install demucs
+pip install mlx-whisper
 ```
 
 ## Run
