@@ -152,6 +152,7 @@ async def _pipeline(job_id: str, extract_audio: bool, remove_vocals: bool, trans
         if remove_vocals:
             await run(
                 [
+                    "nice", "-n", "10",
                     "demucs", "--two-stems=vocals",
                     "--device", "mps",
                     "-o", str(out_dir),
