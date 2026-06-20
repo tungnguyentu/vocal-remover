@@ -1,0 +1,27 @@
+# macOS
+.DS_Store
+
+# Claude
+.claude/
+
+# Videos & audio
+*.mp4
+*.wav
+*.srt
+
+# Processing output
+demucs_out/
+whisper_cache/
+webapp/__pycache__/
+webapp/uploads/
+webapp/outputs/
+
+# Scripts (local only)
+extract-onscreen-text.py
+merge-duplicate-srt.py
+translate-onscreen-srt.py
+translate-srt.py
+
+# Session files
+progress.md
+session-handoff.md
