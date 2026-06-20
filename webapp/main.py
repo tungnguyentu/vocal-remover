@@ -80,8 +80,15 @@ async def status(job_id: str):
 
 @app.get("/download/{job_id}/{filename}")
 async def download(job_id: str, filename: str):
-    path = OUTPUTS / job_id / filename
-    if not path.exists():
+    import re
+    if not re.fullmatch(r"[A-Za-z0-9._-]+", job_id) or not re.fullmatch(r"[A-Za-z0-9._-]+", filename):
+        raise HTTPException(404, "File not found")
+    base = OUTPUTS.resolve()
+    try:
+        path = (OUTPUTS / job_id / filename).resolve(strict=True)
+    except FileNotFoundError:
+        raise HTTPException(404, "File not found")
+    if base not in path.parents:
         raise HTTPException(404, "File not found")
     return FileResponse(path)
 
