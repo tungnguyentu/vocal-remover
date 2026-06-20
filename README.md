@@ -4,16 +4,14 @@ Local webapp to remove vocals from video/audio using Apple Silicon GPU (MPS).
 
 ## Stack
 
-- **demucs** (htdemucs) — vocal separation via MPS
+- **demucs** (htdemucs) — vocal separation via CPU
 - **FastAPI + uvicorn** — backend
 - **ffmpeg** — audio extraction
 
 ## Setup
 
 ```bash
-pip install fastapi uvicorn aiofiles python-multipart
-pip install demucs
-pip install mlx-whisper
+pip install fastapi uvicorn aiofiles python-multipart demucs
 ```
 
 ## Run
@@ -23,7 +21,7 @@ cd webapp
 uvicorn main:app --reload
 ```
 
-Open http://localhost:8000, drop a video/audio file, click **Remove Vocals (GPU)**.
+Open http://localhost:8000, drop a video/audio file, click **Remove Vocals**.
 
 ## Output
 
